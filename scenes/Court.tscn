@@ -1,15 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Court.gd" type="Script" id=4]
 [ext_resource path="res://assets/center_line.png" type="Texture" id=5]
+[ext_resource path="res://assets/UITheme.tres" type="Theme" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 299.838 )
+
 [node name="Court" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512.548, 299.838 )
 
 [node name="CenterLine" type="Sprite" parent="."]
 material = SubResource( 1 )
@@ -24,26 +40,23 @@ position = Vector2( 62.1752, 299.838 )
 [node name="RightPlayerPaddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 959, 299.838 )
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 512.548, 299.838 )
-
 [node name="TopWall" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, -16 )
-scale = Vector2( 30, 1 )
+scale = Vector2( 32, 1 )
 
 [node name="BottomWall" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512.548, 616 )
-scale = Vector2( 30, 1 )
+scale = Vector2( 32, 1.002 )
 
 [node name="P1Score" type="Label" parent="."]
-margin_left = 448.0
+margin_left = 376.0
 margin_top = 16.0
 margin_right = 488.0
-margin_bottom = 30.0
+margin_bottom = 96.0
+theme = ExtResource( 6 )
 text = "0"
 align = 1
 valign = 1
-percent_visible = 4.0
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,13 +65,42 @@ __meta__ = {
 [node name="P2Score" type="Label" parent="."]
 margin_left = 536.0
 margin_top = 16.0
-margin_right = 576.0
-margin_bottom = 30.0
+margin_right = 640.0
+margin_bottom = 96.0
+theme = ExtResource( 6 )
 text = "0"
 align = 1
 valign = 1
-percent_visible = 4.0
 max_lines_visible = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LeftLimit" type="Area2D" parent="."]
+position = Vector2( -8, 299.838 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RightLimit" type="Area2D" parent="."]
+position = Vector2( 1032, 299.838 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RestartGameTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="BallSpawn" type="Position2D" parent="."]
+position = Vector2( 512, 300 )
+
+[connection signal="body_entered" from="LeftLimit" to="." method="_on_LeftLimit_body_entered"]
+[connection signal="body_entered" from="RightLimit" to="." method="_on_RightLimit_body_entered"]
+[connection signal="timeout" from="RestartGameTimer" to="." method="_on_RestartGameTimer_timeout"]

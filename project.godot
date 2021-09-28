@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://scenes/Ball.gd"
+}, {
 "base": "Node2D",
 "class": "Court",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scenes/Paddle.gd"
 } ]
 _global_script_class_icons={
+"Ball": "",
 "Court": "",
 "Paddle": ""
 }
@@ -27,7 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="PongClone"
+run/main_scene="res://scenes/Court.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [physics]
 
