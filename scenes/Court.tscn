@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 299.838 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 248, 300 )
 
 [node name="Court" type="Node2D"]
 script = ExtResource( 4 )
@@ -39,6 +42,7 @@ position = Vector2( 62.1752, 299.838 )
 
 [node name="RightPlayerPaddle" parent="." instance=ExtResource( 1 )]
 position = Vector2( 959, 299.838 )
+ai_mode = true
 
 [node name="TopWall" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, -16 )
@@ -101,6 +105,28 @@ one_shot = true
 [node name="BallSpawn" type="Position2D" parent="."]
 position = Vector2( 512, 300 )
 
+[node name="LeftPaddleAIArea" type="Area2D" parent="."]
+position = Vector2( 248, 300 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddleAIArea"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RightPaddleAIArea" type="Area2D" parent="."]
+position = Vector2( 776, 300 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPaddleAIArea"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="body_entered" from="LeftLimit" to="." method="_on_LeftLimit_body_entered"]
 [connection signal="body_entered" from="RightLimit" to="." method="_on_RightLimit_body_entered"]
 [connection signal="timeout" from="RestartGameTimer" to="." method="_on_RestartGameTimer_timeout"]
+[connection signal="body_entered" from="LeftPaddleAIArea" to="." method="_on_LeftPaddleAIArea_body_entered"]
+[connection signal="body_exited" from="LeftPaddleAIArea" to="." method="_on_LeftPaddleAIArea_body_exited"]
+[connection signal="body_entered" from="RightPaddleAIArea" to="." method="_on_RightPaddleAIArea_body_entered"]
+[connection signal="body_exited" from="RightPaddleAIArea" to="." method="_on_RightPaddleAIArea_body_exited"]

@@ -1,7 +1,7 @@
 class_name Ball
 extends KinematicBody2D
 
-const SPEED =  180
+const SPEED =  230
 var velocity = Vector2.ZERO
 
 func _ready():
