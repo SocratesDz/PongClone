@@ -17,15 +17,16 @@ func _physics_process(delta: float):
 
 func _process_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("move_up"):
 		velocity.y -= MOVE_SPEED
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("move_down"):
 		velocity.y += MOVE_SPEED
 
 func _process_movement(delta: float):
+	# warning-ignore:return_value_discarded
 	move_and_collide(velocity * delta)
 
-func _process_ai_behavior(delta: float):
+func _process_ai_behavior(_delta: float):
 	if ball != null:
 		var next_speed = position.direction_to(ball.position) * MOVE_SPEED
 		velocity.y = next_speed.y
