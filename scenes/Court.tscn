@@ -126,7 +126,7 @@ __meta__ = {
 }
 
 [node name="PauseScreen" parent="." instance=ExtResource( 7 )]
-pause_mode = 2
+process_priority = 1
 
 [connection signal="body_entered" from="LeftLimit" to="." method="_on_LeftLimit_body_entered"]
 [connection signal="body_entered" from="RightLimit" to="." method="_on_RightLimit_body_entered"]
