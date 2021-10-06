@@ -20,7 +20,7 @@ extents = Vector2( 248, 300 )
 pause_mode = 1
 script = ExtResource( 4 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0, 0, 0, 1 )
@@ -127,6 +127,7 @@ __meta__ = {
 
 [node name="PauseScreen" parent="." instance=ExtResource( 7 )]
 process_priority = 1
+visible = false
 
 [connection signal="body_entered" from="LeftLimit" to="." method="_on_LeftLimit_body_entered"]
 [connection signal="body_entered" from="RightLimit" to="." method="_on_RightLimit_body_entered"]
