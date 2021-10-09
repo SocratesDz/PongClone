@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/ResultScreen.gd" type="Script" id=2]
+
+[node name="ResultScreen" type="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.470588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Result" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.5
+margin_top = -22.0
+margin_right = 57.5
+margin_bottom = 22.0
+theme = ExtResource( 1 )
+text = "P1 WON"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+margin_left = -121.5
+margin_top = -104.0
+margin_right = 121.5
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgainBtn" type="Button" parent="Control/VBoxContainer"]
+margin_right = 243.0
+margin_bottom = 50.0
+size_flags_vertical = 3
+text = "Play again"
+flat = true
+
+[node name="MainMenuBtn" type="Button" parent="Control/VBoxContainer"]
+margin_top = 54.0
+margin_right = 243.0
+margin_bottom = 104.0
+size_flags_vertical = 3
+text = "Go to main menu"
+flat = true
+
+[connection signal="pressed" from="Control/VBoxContainer/PlayAgainBtn" to="." method="_on_PlayAgainBtn_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MainMenuBtn" to="." method="_on_MainMenuBtn_pressed"]

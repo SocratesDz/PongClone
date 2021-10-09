@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Paddle",
 "language": "GDScript",
 "path": "res://scenes/Paddle.gd"
+}, {
+"base": "Control",
+"class": "ResultScreen",
+"language": "GDScript",
+"path": "res://scenes/ResultScreen.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
 "Court": "",
-"Paddle": ""
+"Paddle": "",
+"ResultScreen": ""
 }
 
 [application]
