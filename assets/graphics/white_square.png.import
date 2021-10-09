@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/center_line.png-feca74b292bd66cbdc4674738480dd10.stex"
+path="res://.import/white_square.png-34438a283c801f2934f5b79b6483b762.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/center_line.png"
-dest_files=[ "res://.import/center_line.png-feca74b292bd66cbdc4674738480dd10.stex" ]
+source_file="res://assets/graphics/white_square.png"
+dest_files=[ "res://.import/white_square.png-34438a283c801f2934f5b79b6483b762.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

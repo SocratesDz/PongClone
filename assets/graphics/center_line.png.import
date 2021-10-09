@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/paddle.png-3a0aaebe6a43044daf93673e46fcb481.stex"
+path="res://.import/center_line.png-a93da808f0713db8e976e3cb7605e7a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/paddle.png"
-dest_files=[ "res://.import/paddle.png-3a0aaebe6a43044daf93673e46fcb481.stex" ]
+source_file="res://assets/graphics/center_line.png"
+dest_files=[ "res://.import/center_line.png-a93da808f0713db8e976e3cb7605e7a0.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

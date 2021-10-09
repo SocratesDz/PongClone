@@ -1,15 +1,16 @@
 class_name Court
 extends Node2D
 
-onready var ball = $Ball
-onready var p1ScoreLabel = $P1Score
-onready var p2ScoreLabel = $P2Score
-onready var restartTimer = $RestartGameTimer
-onready var ballSpawnPosition = $BallSpawn
-onready var p1Paddle = $LeftPlayerPaddle
-onready var p2Paddle = $RightPlayerPaddle
-onready var pauseScreen = $PauseScreen
-onready var resultScreen = $ResultScreen
+onready var ball := $Ball
+onready var p1ScoreLabel := $P1Score
+onready var p2ScoreLabel := $P2Score
+onready var restartTimer := $RestartGameTimer
+onready var ballSpawnPosition := $BallSpawn
+onready var p1Paddle := $LeftPlayerPaddle
+onready var p2Paddle := $RightPlayerPaddle
+onready var pauseScreen := $PauseScreen
+onready var resultScreen := $ResultScreen
+onready var scoreJingle := $ScoreJingle
 
 const MAX_SCORE := 5
 
@@ -47,6 +48,8 @@ func _on_RightPaddleAIArea_body_exited(_body: Ball) -> void:
 	p2Paddle.ball = null
 
 func _calculate_result_and_show(score: int, player_name: String) -> void:
+	scoreJingle.play()
+	yield(scoreJingle, "finished")
 	if score >= MAX_SCORE:
 		resultScreen.player_name = player_name
 		resultScreen.visible = true

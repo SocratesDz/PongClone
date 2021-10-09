@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/UITheme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/GemunuLibre-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/GemunuLibre-VariableFont_wght.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
