@@ -14,4 +14,5 @@ func _on_PlayAgainBtn_pressed():
 
 
 func _on_MainMenuBtn_pressed():
+	get_tree().paused = false
 	globals.show_main_menu()

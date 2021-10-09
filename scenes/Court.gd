@@ -50,6 +50,7 @@ func _calculate_result_and_show(score: int, player_name: String) -> void:
 	if score >= MAX_SCORE:
 		resultScreen.player_name = player_name
 		resultScreen.visible = true
+		yield(get_tree().create_timer(1), "timeout")
 		get_tree().set_deferred("paused", true)
 		pauseScreen.set_process_input(false)
 	else:
